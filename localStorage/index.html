@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <p id="output">This is your first time on this site!</p>
+
+    <script type="text/javascript">
+      if( localStorage.num ){
+        let count = Number(localStorage.num) + 1;
+        document.getElementById("output").innerHTML = "Welcome Back, you have entered this page " + count + " times.";
+        localStorage.num = count;
+      }
+      else {
+        localStorage.num = 1;
+      }
+    </script>
+  </body>
+</html>

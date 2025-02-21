@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <p id="welcome"></p>
+
+    <input type="text" id="codeWord" value="default value" onchange="doThing()"></input>
+    <br>
+    <button type="button" onclick="doThing()">Click to verify</button>
+ 	  <p id="outputArea">Mostly empty…</p>
+
+    <script type="text/javascript">
+      "use strict"
+
+      let userName = prompt("enter your name: ");
+      document.getElementById("welcome").innerHTML = "Welcome, " + userName;
+
+      function doThing(){
+
+        let userInput = document.getElementById("codeWord").value;
+
+        if(userInput.length <= 2 && userInput != "") {
+          document.getElementById("outputArea").innerHTML = userInput;
+        }
+        else if(userInput == "") {
+          document.getElementById("outputArea").innerHTML = "you should probably put something in the box before hitting the button...";
+        }
+        else if(userInput.search("pass") >= 0){
+          document.getElementById("outputArea").innerHTML = "nah, no passsing with using the word pass or something idk...";
+        }
+        else {
+          let output = userInput.at(0);
+          for(let i = 1; i < userInput.length-1; i++){
+            output += "*";
+          }
+          output += userInput.at(userInput.length-1);
+          document.getElementById("outputArea").innerHTML = output;
+        }
+      }
+    </script>
+  </body>
+
+</html>
